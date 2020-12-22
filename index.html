@@ -6,10 +6,23 @@
     How about a 5 dollar hotdog? <BR> <BR>
 
     <button onclick="random()"> Yes </button>
+    <canvas id="myCanvas" width=500 height=300 />
   </body>
   <script type="text/javascript">
     function random(){
-    alert("I am hungery for wings");
+      alert("I am hungery for wings");
     }
+    var c_w = 500;
+    var c_h = 300;
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    // Draw Border
+    ctx.beginPath();
+    ctx.rect(0, 0, c_w, c_h);
+    ctx.stroke();
+    // Draw Circle
+    ctx.beginPath();
+    ctx.arc(100,75,50,0,2*Math.PI);
+    ctx.stroke();
   </script>
 </html>

@@ -15,6 +15,7 @@
     }
 
     var height = 0;
+    var length = 0;
     var start = 0;
     var last = 0;
 
@@ -25,7 +26,8 @@
 
 
       height += 1 * elapsed/60;
-      if(height > 400)
+      length += 1 * elapsed/60;
+      if(height > 350)
         height = 0;
 
       var c_w = 500;
@@ -40,7 +42,7 @@
       ctx.stroke();
       // Draw Circle
       ctx.beginPath();
-      ctx.arc(100,75+height,50,0,2*Math.PI);
+      ctx.arc(100+length,75+height,50,0,2*Math.PI);
       ctx.stroke();
 
       window.requestAnimationFrame(step);

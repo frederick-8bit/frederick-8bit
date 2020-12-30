@@ -1,6 +1,6 @@
 <html>
-  <head> 
-    <title> Hello New York </title> 
+  <head>
+    <title> Hello New York </title>
   </head>
 
   <body>
@@ -13,15 +13,16 @@
     function random(){
       alert("I am hungery");
     }
-    
+
     var height = 0;
     var start = 0;
     var last = 0;
 
     function step(timestamp){
-      if (start === undefined)
-        start = timestamp;
-      var elapsed = timestamp - last
+
+      var elapsed = timestamp - start;
+      start = timestamp;
+
 
       height += 1 * elapsed/60;
       if(height > 400)

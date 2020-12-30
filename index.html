@@ -18,20 +18,45 @@
     var length = 0;
     var start = 0;
     var last = 0;
+    var m_direction = 0;
 
     function step(timestamp){
 
       var elapsed = timestamp - start;
       start = timestamp;
+	// if m_direction is less than -175 set it to move up
+	// if m_directoin is greater than 175 set it to move down
 
+	if (m_direction == 0)
+	{
+	        height += 1 * elapsed/30;
+	        //alert("Going up");
+	}
+	else if (m_direction == 1)
+	{
+		height -= 1 * elapsed/30;
+	}
+	if (height > 175)
+		{ m_direction = 1;
+	//	alert("I am hungery");
+		}
+	if (height < -25)
+		{ m_direction = 0;
+	//	alert(height);
+		}
 
-      height += 1 * elapsed/60;
-      length += 1 * elapsed/60;
-      if(height > 350)
-        {height = 0;
-         length = 0;
+/*      if(height > 175)
+        {
+        height += -1;
+//        height = 0;
+//        length = 0;
         }
-
+        else
+        {
+        height += 1 * elapsed/30;
+//        length += 1 * elapsed/60;
+		}
+*/
       var c_w = 500;
       var c_h = 300;
       var canvas = document.getElementById("myCanvas");

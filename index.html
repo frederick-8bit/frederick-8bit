@@ -19,6 +19,7 @@
     var start = 0;
     var last = 0;
     var m_direction = 0;
+    var l_direction = 0;
 
     function step(timestamp){
 
@@ -27,14 +28,26 @@
 	// if m_direction is less than -175 set it to move up
 	// if m_directoin is greater than 175 set it to move down
 
+	//length += 1 * elapsed/30;
+
 	if (m_direction == 0)
 	{
-	        height += 1 * elapsed/30;
+	        height += 1 * elapsed/15;
 	        //alert("Going up");
 	}
 	else if (m_direction == 1)
 	{
-		height -= 1 * elapsed/30;
+		height -= 1 * elapsed/15;
+	}
+		if (l_direction == 0)
+		{
+		        length += 1 * elapsed/15;
+		        //alert("Going right");
+		}
+		else if (l_direction == 1)
+		{
+			length -= 1 * elapsed/15;
+			//alert("Going left");
 	}
 	if (height > 175)
 		{ m_direction = 1;
@@ -43,6 +56,14 @@
 	if (height < -25)
 		{ m_direction = 0;
 	//	alert(height);
+		}
+	if (length > 348)
+		{ l_direction = 1;
+//		alert("switching left");
+		}
+	if (length < -50)
+		{ l_direction = 0;
+//		alert("switching left");
 		}
 
       var c_w = 500;
@@ -56,9 +77,11 @@
       ctx.rect(0, 0, c_w, c_h);
       ctx.stroke();
       // Draw Circle
+      ctx.fillStyle = "#3370d4";
       ctx.beginPath();
       ctx.arc(100+length,75+height,50,0,2*Math.PI);
       ctx.stroke();
+	  ctx.fill();
 
       window.requestAnimationFrame(step);
     }

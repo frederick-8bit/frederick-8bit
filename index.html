@@ -20,6 +20,7 @@
     var last = 0;
     var m_direction = 0;
     var l_direction = 0;
+	var fill_color="#3370d4";
 
     function step(timestamp){
 
@@ -51,18 +52,22 @@
 	}
 	if (height > 175)
 		{ m_direction = 1;
+		fill_color = "#FF70d4";
 	//	alert("I am hungery");
 		}
 	if (height < -25)
 		{ m_direction = 0;
+		fill_color = "#0FF0d4";
 	//	alert(height);
 		}
 	if (length > 348)
 		{ l_direction = 1;
+		fill_color = "#0070FF";
 //		alert("switching left");
 		}
 	if (length < -50)
 		{ l_direction = 0;
+		fill_color = "#00FFFF";
 //		alert("switching left");
 		}
 
@@ -77,7 +82,8 @@
       ctx.rect(0, 0, c_w, c_h);
       ctx.stroke();
       // Draw Circle
-      ctx.fillStyle = "#3370d4";
+// ctx.fillStyle = "#3370d4";
+	  ctx.fillStyle = fill_color;
       ctx.beginPath();
       ctx.arc(100+length,75+height,50,0,2*Math.PI);
       ctx.stroke();
